@@ -9,7 +9,7 @@
     "routes":[
         {
             "src": "/(.*)",
-            "dest": "plantLeaf/wsgi.py"
+            "dest": "PlantLeaf/wsgi.py"
         }
 
     ]
