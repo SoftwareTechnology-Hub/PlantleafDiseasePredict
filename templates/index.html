@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .navbar {
+      background-color: #053c07;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      transition: top 0.3s;
+      z-index: 1000;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #0e8b1c;
+      color: black;
+    }
+    
+    
+    .hero-section {
+      background-image: url('static/images/1images.jpeg'); /* Add your image URL here */
+      background-size: cover;
+      background-position: center;
+      height: 300px; /* Adjust the height as needed */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      
+    }
+
+    .content {
+      padding: 60px 16px;
+    }
+
+    .go-predict-button {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #075509;
+      color: white;
+      padding: 15px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none; /* Remove the default underline for links */
+      display: inline-block; /* Make the link behave like a block element */
+   
+    }
+    .section {
+      flex: 1;
+      padding: 60px 20px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .section h1 {
+      color: #333;
+    }
+
+    .section p {
+      color: #555;
+      font-size: 18px;
+    }
+
+    .section button {
+      background-color: #064108;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .section i {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .footer {
+      background-color: #043012;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      /*position: fixed;*/
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar" id="navbar">
+  <a href="{% url 'home' %}">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#contact">Contact Us</a>
+  <a href="#services">Services</a>
+  <a href="#signup">Sign Up</a>
+  
+  <div style="float: right;">
+    <input type="text" placeholder="Search...">
+    <button type="submit">Search</button>
+  </div>
+</div>
+<div class="hero-section">
+  <h1>Welcome to Plant Leaf Disease Prediction Website</h1>
+
+</div>
+<div>
+  <a href="{% url 'home' %}" class="go-predict-button">Go to Predict</a>
+</div>
+<div class="container">
+  <div class="section" style="background-color: #fff;">
+    <i class="fas fa-users"></i>
+    <h1>Who We Are</h1>
+    <p>We are a dedicated team committed to providing excellent services and solutions.</p>
+    <button onclick="alert('Learn more about who we are!')">Learn More</button>
+  </div>
+
+  <div class="section" style="background-color: #f9f9f9;">
+    <i class="fas fa-bullseye"></i>
+    <h1>Our Aim</h1>
+    <p>Our aim is to innovate, inspire, and make a positive impact on the world.</p>
+    <button onclick="alert('Discover our aims and goals!')">Discover</button>
+  </div>
+
+  <div class="section" style="background-color: #fff;">
+    <i class="fas fa-cogs"></i>
+    <h1>Our Services</h1>
+    <p>We offer a wide range of services to meet your needs and exceed your expectations.</p>
+    <button onclick="alert('Explore our services!')">Explore Services</button>
+  </div>
+</div>
+
+<div class="content">
+  
+</div>
+<div class="footer">
+  <p>&copy;  PlantLeafDiseasPredictionWebsite. All rights reserved.</p>
+</div>
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  var prevScrollpos = window.pageYOffset;
+  window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      document.getElementById("navbar").style.top = "0";
+    } else {
+      document.getElementById("navbar").style.top = "-60px";
+    }
+    prevScrollpos = currentScrollPos;
+  }
+</script>
+
+</body>
+</html>

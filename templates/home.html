@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block extra_style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block extra_scripts %}
+{% load static %}
+<script src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<!-- Your content here, you can integrate your login form with HTML structure -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title> 
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+/* Style for the navigation bar */
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #555;
+}
+
+/* Style for the search input and button */
+.search-container {
+    float: right;
+}
+
+.search-container input[type="text"] {
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    border: none;
+}
+
+.search-container button {
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style for the file input button and footer */
+.file-upload {
+    margin: 100px auto;
+    text-align: center;
+}
+
+.footer {
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+   <!-- Navigation Bar -->
+   <div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#search">Search</a>
+    <a href="#cd">Contact</a>
+    <a href="#about">About Us</a>
+    <a href="">login</a>
+    <div class="search-container">
+        <input type="text" placeholder="Search..." name="search">
+        <button type="submit">Search</button>
+    </div>
+    </div>
+
+  <div class="heading">
+    <h1 color="black" >PLANT LEAF DISEASE PREDICTION WEBSITE</h1>
+</div>
+<div>
+<section>
+    <form
+        action=""
+        method="post"
+        enctype="multipart/form-data"
+        onsubmit="showloading()"
+    >
+        {% csrf_token %}
+        <input type="file" name="image" class="upload" />
+        <br />
+        <br />
+        <input type="submit" name="submit" value="Predict" />
+    </form>
+</section>
+</div>
+ <!-- Footer with Black Background -->
+ <div class="footer">
+  <p>Copyright &copy; 2023 YourWebsite.com</p>
+</div>
+</body>
+</html>
+
+{% endblock %}
