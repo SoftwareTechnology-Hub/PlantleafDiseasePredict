@@ -32,11 +32,6 @@ ALLOWED_HOSTS = ['*', '.now.sh']
 
 # loading model and labels
 
-MODEL = load_model(os.path.join(BASE_DIR,'plant_leaf_model.h5'))
-
-with open(os.path.join(BASE_DIR,'label_transform.pkl'),'rb') as f:
-    LABELS = pickle.load(f)
-LABELS = LABELS.classes_
 
 # Application definition
 
