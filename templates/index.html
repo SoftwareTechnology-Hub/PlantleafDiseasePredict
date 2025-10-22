@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +37,8 @@
     
     
     .hero-section {
-      background-image: url('static/images/1images.jpeg'); /* Add your image URL here */
+      background-image: url('{ % static 'images/1images.jpeg' % }'); /* Add your image URL here */
+
       background-size: cover;
       background-position: center;
       height: 300px; /* Adjust the height as needed */
