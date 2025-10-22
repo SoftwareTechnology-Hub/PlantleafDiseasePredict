@@ -12,6 +12,8 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 # Create your views here.
 import os
+import pickle
+import os
 from tensorflow.keras.models import load_model
 
 with open(settings.LABELS_PATH, 'rb') as f:
