@@ -33,9 +33,9 @@ def reformat(name):
     return ' '.join(l).strip()
 
 def home(request):
-    model = settings.MODEL
-    labels = settings.LABELS
-    labels = np.array(list(map(reformat,labels)))
+    model = settings.get_model() 
+    labels = np.array(list(map(reformat,LABELS))))
+
    
     if request.method=='POST':
         filestr = request.FILES['image'].read()
