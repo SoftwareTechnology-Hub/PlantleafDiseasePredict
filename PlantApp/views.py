@@ -13,13 +13,13 @@ from django.contrib.auth.models import User
 import os
 from tensorflow.keras.models import load_model
 
-MODEL_PATH = os.path.join(settings.BASE_DIR, 'plant_model.h5')
-LABELS = ['Label1', 'Label2', ...]  # keep static labels
+with open(settings.LABELS_PATH, 'rb') as f:
+    LABELS = pickle.load(f).classes_
 
+# Lazy-load model
 def get_model():
-    # load model once
     if not hasattr(get_model, 'model'):
-        get_model.model = load_model(MODEL_PATH)
+        get_model.model = load_model(settings.MODEL_PATH)
     return get_model.model
 
 def reformat(name):
