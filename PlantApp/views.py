@@ -33,8 +33,8 @@ def reformat(name):
     return ' '.join(l).strip()
 
 def home(request):
-    model = settings.get_model() 
-    labels = np.array(list(map(reformat,LABELS))))
+    model = get_model() 
+    labels = np.array(list(map(reformat,LABELS)))
 
    
     if request.method=='POST':
