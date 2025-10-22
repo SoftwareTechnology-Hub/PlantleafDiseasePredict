@@ -10,6 +10,17 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 # Create your views here.
+import os
+from tensorflow.keras.models import load_model
+
+MODEL_PATH = os.path.join(settings.BASE_DIR, 'plant_model.h5')
+LABELS = ['Label1', 'Label2', ...]  # keep static labels
+
+def get_model():
+    # load model once
+    if not hasattr(get_model, 'model'):
+        get_model.model = load_model(MODEL_PATH)
+    return get_model.model
 
 def reformat(name):
     l = name.split('_')
